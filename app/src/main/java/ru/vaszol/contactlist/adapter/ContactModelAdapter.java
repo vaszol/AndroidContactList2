@@ -1,10 +1,12 @@
 package ru.vaszol.contactlist.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -49,13 +51,17 @@ public class ContactModelAdapter extends BaseAdapter {
         ContactModel contactModel = getContactModel(position);
         TextView name= (TextView) view.findViewById(R.id.textView);
         TextView mail = (TextView) view.findViewById(R.id.textMailView);
+        ImageView avatar = (ImageView) view.findViewById(R.id.imageView);
         name.setText(contactModel.getName()+" "+contactModel.getLastName());
-        mail.setText(contactModel.getMail());
-
+        mail.setText(contactModel.getMail().toLowerCase());
+//        avatar.setImageURI(Uri.parse(getGravatar(contactModel.getMail())));
+        avatar.setImageResource(R.mipmap.ic_launcher);
         return view;
     }
 
     private ContactModel getContactModel(int position){
         return (ContactModel) getItem(position);
     }
+
+
 }

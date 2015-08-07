@@ -3,4 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="add_Btn">Добавить</string>
+    <string name="remove_Btn">Удалить</string>
 </resources>
